@@ -1,11 +1,55 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
+import HeroSidebar from '../components/HeroSidebar.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import Contact from '../components/Contact.astro';
+import TechStack from '../components/TechStack.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import TopNavbar from '../components/TopNavbar.astro';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { projects } from '../data/projects';
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="Mario Acuña | Ingeniero de Software">
+
+	<TopNavbar />
+
+    <main class="min-h-screen lg:flex">
+		
+		<div id="top" class="absolute top-0"></div>
+        <HeroSidebar />
+
+        <section class="lg:w-2/3 lg:ml-[33.33333%] bg-primary-bg p-6 lg:p-20 flex flex-col gap-32">
+            
+			<div class="flex flex-col mt-10 lg:mt-0">
+                
+				<div id="proyectos" class="flex flex-col mt-10 lg:mt-0 pt-20"> <SectionTitle 
+                    title="PROYECTOS" 
+                    count={`01 — 0${projects.length}`} 
+                />
+
+                <div class="flex flex-col gap-24">
+                    {projects.map((project) => (
+                        <ProjectCard 
+                            number={project.number}
+                            category={project.category}
+                            title={project.title}
+                            description={project.description}
+                            stack={project.stack}
+                            image={project.image}
+                        />
+                    ))}
+                </div>
+            </div>
+
+			<div id="stack" class="pt-20">
+                 <SectionTitle title="STACK INFO" count="SPECS" />
+                 <TechStack />
+            </div>
+
+            <Contact email="marioacuna06@gmail.com" />
+
+        </section>
+
+    </main>
 </Layout>

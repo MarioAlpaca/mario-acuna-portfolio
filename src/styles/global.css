@@ -1,0 +1,82 @@
+/* src/styles/global.css */
+@import "tailwindcss";
+
+@theme {
+  /* --- 1. COLORES --- */
+  --color-primary-bg: #141C16;
+  --color-accent-light: #EBEAD6;
+  --color-accent-dim: #A3A398;
+
+  /* --- 2. FUENTES --- */
+  --font-display: "Oswald", "sans-serif";
+  --font-mono: "JetBrains Mono", "monospace";
+
+  --animate-shimmer: shimmer 3s infinite linear;
+
+  @keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    background-color: var(--color-primary-bg);
+    color: var(--color-accent-light);
+  }
+  
+  body {
+    font-family: var(--font-mono); 
+    overflow-x: hidden;
+    /* BORRADO: @apply bg-noise; -> Lo pondremos en el HTML */
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--color-primary-bg); }
+  ::-webkit-scrollbar-thumb { background: #2A362C; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-accent-dim); }
+
+  /* Selección */
+  ::selection {
+    background-color: var(--color-accent-light);
+    color: var(--color-primary-bg);
+  }
+}
+
+@utility writing-vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+@layer utilities {
+  .text-stroke {
+    -webkit-text-fill-color: transparent;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: var(--color-accent-light);
+  }
+
+  /* Ruido mejorado */
+  .bg-noise {
+    position: relative;
+    isolation: isolate;
+  }
+  .bg-noise::before {
+    content: "";
+    position: fixed; /* Fixed para cubrir toda la pantalla */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.04; 
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  }
+
+  @media (max-width: 768px) {
+    .text-stroke {
+      -webkit-text-stroke-width: 1px;
+    }
+  }
+}

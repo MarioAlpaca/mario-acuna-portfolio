@@ -1,0 +1,61 @@
+---
+const links = [
+  { name: "Inicio", href: "#top" },
+  { name: "Proyectos", href: "#proyectos" },
+  { name: "Stack", href: "#stack" },
+  { name: "Contacto", href: "#contacto" },
+];
+---
+
+<header class="fixed top-0 right-0 w-full lg:w-2/3 z-40 transition-all duration-300">
+    <nav class="flex items-center justify-between px-6 py-4 lg:px-12 mx-auto">
+        
+        <div class="hidden md:flex flex-row text-accent-dim text-xs font-mono tracking-widest">
+            <span class="animate-pulse mr-2">●</span> ONLINE
+        </div>
+
+        <div class="flex flex-row gap-8 justify-end">
+            {links.map((link) => (
+                <a 
+                    href={link.href} 
+                    class="font-mono text-xs lg:text-sm text-accent-dim hover:text-accent-light transition-colors uppercase tracking-widest hover:underline underline-offset-4 decoration-accent-dim/30"
+                >
+                    {link.name}
+                </a>
+            ))}
+        </div>
+
+    </nav>
+</header>
+
+<style>
+    /* ANIMACIÓN SCROLL-DRIVEN 
+       Esta es la magia que pediste. Al hacer scroll, el header cambia.
+    */
+    header {
+        animation: nav-scroll 0.1s linear both; /* Duración muy corta, controlada por scroll */
+        animation-timeline: scroll(); /* Estándar moderno */
+        animation-range: 0 150px; /* El efecto ocurre en los primeros 150px de scroll */
+    }
+
+    @keyframes nav-scroll {
+        0% {
+            background: transparent;
+            backdrop-filter: blur(0px);
+            border-bottom: 1px solid transparent;
+            padding-top: 1rem; /* py-4 original */
+            padding-bottom: 1rem;
+        }
+
+        100% {
+            /* Usamos tu variable de color de fondo con opacidad */
+            background: rgba(20, 28, 22, 0.85); 
+            backdrop-filter: blur(12px);
+            /* Borde sutil abajo */
+            border-bottom: 1px solid rgba(163, 163, 152, 0.1); 
+            /* Hacemos el navbar un poco más compacto al bajar */
+            padding-top: 0.75rem; 
+            padding-bottom: 0.75rem;
+        }
+    }
+</style>

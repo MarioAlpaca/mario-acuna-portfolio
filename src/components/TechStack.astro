@@ -1,0 +1,43 @@
+---
+const stack = [
+  { 
+    category: "CORE & LENGUAJES", 
+    items: ["JavaScript (ES6+)", "TypeScript", "Python", "SQL"] 
+  },
+  { 
+    category: "FRONTEND & UI", 
+    items: ["React", "Astro", "Tailwind CSS", "Framer Motion", "Next.js"] 
+  },
+  { 
+    category: "BACKEND & CLOUD", 
+    items: ["Node.js", "PostgreSQL", "AWS (S3/EC2)", "Docker"] 
+  },
+  { 
+    category: "TOOLS & ARQUITECTURA", 
+    items: ["Git / GitHub", "CI/CD Pipelines", "Figma", "REST APIs"] 
+  }
+];
+---
+
+<section class="flex flex-col gap-10 mt-20 mb-5">
+    
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16"> 
+        {stack.map((group) => (
+            <div class="group">
+                <h4 class="font-mono text-xs text-accent-dim mb-6 uppercase tracking-widest border-b border-accent-dim/20 pb-2 inline-block">
+                    {group.category}
+                </h4>
+                
+                <ul class="flex flex-col gap-3">
+                    {group.items.map((item) => (
+                        <li class="font-display text-2xl lg:text-3xl text-accent-light/60 hover:text-accent-light transition-colors duration-300 cursor-default uppercase">
+                            {item}
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        ))}
+    </div>
+
+</section>

@@ -1,0 +1,71 @@
+---
+import { DecoderText } from './ReactC/DecoderText.jsx';
+
+interface Props {
+    email: string;
+}
+const { email } = Astro.props;
+---
+
+<section id="contacto" class="border-t border-accent-dim/30 pt-20 pb-32 mt-32 flex flex-col gap-10">
+    
+    <div class="flex flex-col gap-2">
+        <span class="font-mono text-accent-dim text-xs tracking-widest uppercase">¿Tienes un proyecto?</span>
+        <h2 class="font-display font-bold text-5xl lg:text-7xl text-accent-light uppercase">
+            <DecoderText client:visible text="HABLEMOS" />
+        </h2>
+    </div>
+
+    <button 
+        id="copy-email-btn"
+        data-email={email}
+        class="group relative w-full border border-accent-dim/20 hover:border-accent-light bg-accent-light/5 hover:bg-accent-light/10 transition-all duration-300 p-8 lg:p-16 text-left overflow-hidden cursor-pointer"
+    >
+        <span class="relative z-10 font-display text-3xl lg:text-5xl text-accent-dim group-hover:text-accent-light transition-colors lowercase">
+            {email}
+        </span>
+
+        <div class="absolute top-1/2 right-8 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <span class="font-mono text-xs uppercase tracking-widest text-accent-light border border-accent-light px-3 py-1 rounded-full">
+                Copiar
+            </span>
+        </div>
+
+        <div id="copy-feedback" class="absolute inset-0 bg-accent-light flex items-center justify-center translate-y-full transition-transform duration-300 z-20">
+            <span class="font-display text-4xl text-primary-bg font-bold uppercase">¡Email Copiado!</span>
+        </div>
+    </button>
+
+    <div class="flex justify-between items-end font-mono text-xs text-accent-dim/50 uppercase tracking-widest">
+        <span>© {new Date().getFullYear()} Mario Acuña | Todos los derechos reservados</span>
+        <div class="flex gap-4">
+            <a href="https://github.com/MarioAlpaca" target="_blank" class="hover:text-accent-light transition-colors">Github</a>
+            <a href="https://linkedin.com/in/mario-acuña-338a04366" target="_blank" class="hover:text-accent-light transition-colors">LinkedIn</a>
+            <a href="#" class="hover:text-accent-light transition-colors">CV</a>
+        </div>
+    </div>
+
+</section>
+
+<script>
+    // Lógica para copiar al portapapeles
+    const btn = document.getElementById('copy-email-btn');
+    const feedback = document.getElementById('copy-feedback');
+
+    if (btn && feedback) {
+        btn.addEventListener('click', () => {
+            const email = btn.dataset.email;
+            
+            // Copiar
+            navigator.clipboard.writeText(email || "").then(() => {
+                // Mostrar feedback
+                feedback.classList.remove('translate-y-full');
+                
+                // Ocultar feedback después de 2 segundos
+                setTimeout(() => {
+                    feedback.classList.add('translate-y-full');
+                }, 2000);
+            });
+        });
+    }
+</script>

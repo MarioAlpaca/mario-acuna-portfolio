@@ -1,0 +1,50 @@
+---
+// Definimos datos
+interface Props {
+  number: string;
+  category: string;
+  title: string;
+  description: string;
+  stack: string[];
+  image?: string;  // Opcional
+}
+
+const { number, category, title, description, stack, image } = Astro.props;
+---
+
+<article class="group grid gap-6 border-t border-accent-dim/30 pt-8 first:border-t-0">
+    <div class="grid md:grid-cols-[1.5fr_1fr] gap-8 items-start">
+        
+        <div class="bg-accent-light/5 aspect-video overflow-hidden border border-accent-dim/10 group-hover:border-accent-light/50 transition-all duration-500 relative">
+            {image ? (
+                <img src={image} alt={title} class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity grayscale group-hover:grayscale-0" />
+            ) : (
+                <div class="w-full h-full bg-linear-to-br from-accent-dim/10 to-transparent flex items-center justify-center text-accent-dim/20">
+                    <span class="font-display uppercase text-lg">No Image</span>
+                </div>
+            )}
+        </div>
+        
+        <div class="flex flex-col gap-4">
+            <span class="text-accent-dim text-sm tracking-widest font-bold">
+                {number}. {category.toUpperCase()}
+            </span>
+            
+            <h3 class="text-4xl font-display uppercase leading-none group-hover:text-white transition-colors">
+                {title}
+            </h3>
+            
+            <p class="text-accent-light/70 leading-relaxed text-sm lg:text-base">
+                {description}
+            </p>
+            
+            <div class="flex flex-wrap gap-2 mt-2 font-mono text-xs">
+                {stack.map((tech) => (
+                    <span class="px-2 py-1 border border-accent-dim/30 rounded-full text-accent-dim group-hover:border-accent-light/50 group-hover:text-accent-light transition-colors">
+                        {tech}
+                    </span>
+                ))}
+            </div>
+        </div>
+    </div>
+</article>

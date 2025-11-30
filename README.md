@@ -1,46 +1,30 @@
-# Astro Starter Kit: Basics
+# Mario Acuña - Portfolio 2025
 
-```sh
-npm create astro@latest -- --template basics
-```
+Portafolio personal diseñado con un enfoque **editorial y técnico**, priorizando la tipografía, el rendimiento y la micro-interacción.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+![Portfolio Preview](./public/preview.jpg) 
+*(Nota: Sube una captura de pantalla de tu web y guárdala como preview.jpg para que se vea aquí)*
 
-## 🚀 Project Structure
+## ⚡ Stack Tecnológico
 
-Inside of your Astro project, you'll see the following folders and files:
+Arquitectura moderna enfocada en rendimiento (Lighthouse 100/100):
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
+- **Core:** [Astro 5.0](https://astro.build) (Islands Architecture).
+- **Estilos:** [Tailwind CSS v4](https://tailwindcss.com) (CSS Variables, Dark Theme).
+- **Interactividad:** [React](https://react.dev) + [Framer Motion](https://www.framer.com/motion) (Spring Physics animations).
+- **Tipografía:** Oswald (Display) & JetBrains Mono (Technical).
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+## 🎨 Características de Diseño
 
-## 🧞 Commands
+- **Layout Split-Screen:** Navegación fija lateral + Scroll de contenido.
+- **Efecto "Decoder Text":** Animación de descifrado de caracteres (estilo Matrix/Cyberpunk) usando Framer Motion.
+- **Estética Brutalista:** Uso de ruido (film grain), bordes técnicos y tipografía de alto contraste.
+- **Navegación Scroll-Driven:** Navbar que reacciona y se difumina al hacer scroll.
 
-All commands are run from the root of the project, from a terminal:
+## 🚀 Instalación Local
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+```bash
+git clone [https://github.com/TU_USUARIO/mario-acuna-portfolio.git](https://github.com/TU_USUARIO/mario-acuna-portfolio.git)
+cd mario-acuna-portfolio
+npm install
+npm run dev
