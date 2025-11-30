@@ -3,7 +3,6 @@
 Portafolio personal diseñado con un enfoque **editorial y técnico**, priorizando la tipografía, el rendimiento y la micro-interacción.
 
 ![Portfolio Preview](./public/preview.jpg) 
-*(Nota: Sube una captura de pantalla de tu web y guárdala como preview.jpg para que se vea aquí)*
 
 ## ⚡ Stack Tecnológico
 
