@@ -1,6 +1,6 @@
 # Mario Acuña - Portfolio 2025
 
-Portafolio personal diseñado con un enfoque **editorial y técnico**, priorizando la tipografía, el rendimiento y la micro-interacción.
+Portafolio personal diseñado con un enfoque **técnico**, priorizando la tipografía, el rendimiento y la micro-interacción.
 
 ![Portfolio Preview](./public/preview.jpg) 
 
