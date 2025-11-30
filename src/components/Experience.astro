@@ -1,0 +1,35 @@
+---
+import { experience } from '../data/experience';
+---
+
+<div class="relative border-l border-accent-dim/20 ml-3 my-10 space-y-12">
+    {experience.map((job) => (
+        <div class="relative pl-8 md:pl-12 group">
+            
+            <span class={`absolute top-2 -left-[5px] w-2.5 h-2.5 rounded-full border border-primary-bg ${job.current ? 'bg-accent-light animate-pulse shadow-[0_0_10px_rgba(235,234,214,0.5)]' : 'bg-accent-dim'}`}></span>
+
+            <div class="flex flex-col sm:flex-row sm:items-center sm:gap-4 mb-2">
+                <span class="font-mono text-xs text-accent-dim/60 tracking-widest uppercase mb-1 sm:mb-0">
+                    {job.date}
+                </span>
+                
+                {job.current && (
+                    <span class="w-fit px-2 py-0.5 text-[10px] font-mono font-bold text-primary-bg bg-accent-light rounded-sm uppercase tracking-wider">
+                        Current
+                    </span>
+                )}
+            </div>
+
+            <h3 class="font-display text-2xl md:text-3xl font-bold text-accent-light mb-1 group-hover:text-white transition-colors">
+                {job.role}
+            </h3>
+            <h4 class="font-mono text-sm text-accent-dim mb-4 uppercase tracking-widest">
+                @ {job.company}
+            </h4>
+            <p class="text-accent-light/70 font-light leading-relaxed max-w-2xl text-sm md:text-base">
+                {job.description}
+            </p>
+
+        </div>
+    ))}
+</div>

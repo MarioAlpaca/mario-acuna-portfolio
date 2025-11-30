@@ -1,0 +1,58 @@
+---
+import { certifications } from '../data/certifications';
+import { ImageModal } from './ReactC/ImageModal.jsx';
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
+    {certifications.map((cert) => (
+        <div class="relative border border-accent-dim/20 p-5 transition-all duration-300 group overflow-hidden hover:border-accent-light/40 hover:bg-accent-light/5">
+            
+            {cert.image && (
+                <ImageModal 
+                    client:load 
+                    src={cert.image} 
+                    alt={cert.name} 
+                    title={cert.name} 
+                />
+            )}
+
+            {cert.url && !cert.image && (
+                <a href={cert.url} target="_blank" class="absolute inset-0 z-10" aria-label={`Ver ${cert.name}`}></a>
+            )}
+
+            <div class="flex justify-between items-start mb-4 opacity-50 font-mono text-[10px] tracking-widest uppercase pointer-events-none">
+                <span>{cert.date}</span>
+                {cert.id && <span>ID: {cert.id}</span>}
+            </div>
+
+            <h3 class="font-display text-xl text-accent-light group-hover:text-white mb-2 leading-tight pointer-events-none">
+                {cert.name}
+            </h3>
+
+            <div class="flex items-center gap-2 mt-auto pt-2 pointer-events-none">
+                <div class="w-1.5 h-1.5 bg-accent-dim rounded-full group-hover:bg-accent-light transition-colors"></div>
+                <span class="font-mono text-xs text-accent-dim uppercase">
+                    {cert.issuer}
+                </span>
+            </div>
+
+            <div class="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 text-accent-light pointer-events-none">
+                {cert.image ? (
+                    // Icono de OJO (Ver)
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                        <circle cx="12" cy="12" r="3"></circle>
+                    </svg>
+                ) : (
+                    // Icono de FLECHA (Ir)
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                )}
+            </div>
+
+        </div>
+    ))}
+</div>
