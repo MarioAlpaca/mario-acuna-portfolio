@@ -1,8 +1,10 @@
 ---
+import { ThemeToggle } from './ReactC/ThemeToggle.jsx';
+
 const links = [
-  { name: "Inicio", href: "#top" },
+  { name: "Inicio", href: "#top" }, // Ajusté a #top para que suba
   { name: "Proyectos", href: "#proyectos" },
-  { name: "Experiencia", href: "#experiencia" },
+  { name: "Trayectoria", href: "#experiencia" },
   { name: "Certificaciones", href: "#certificaciones" },
   { name: "Stack", href: "#stack" },
   { name: "Contacto", href: "#contacto" },
@@ -10,34 +12,42 @@ const links = [
 ---
 
 <header class="fixed top-0 right-0 w-full lg:w-2/3 z-40 transition-all duration-300">
-    <nav class="flex items-center justify-between px-6 py-4 lg:px-12 mx-auto">
+    <nav class="flex items-center justify-between px-4 py-3 lg:px-12 mx-auto">
         
-        <div class="hidden md:flex flex-row text-accent-dim text-xs font-mono tracking-widest">
+        <div class="hidden md:flex flex-row text-accent-dim text-xs font-mono tracking-widest shrink-0">
             <span class="animate-pulse mr-2">●</span> ONLINE
         </div>
 
-        <div class="flex flex-row gap-8 justify-end">
-            {links.map((link) => (
-                <a 
-                    href={link.href} 
-                    class="font-mono text-xs lg:text-sm text-accent-dim hover:text-accent-light transition-colors uppercase tracking-widest hover:underline underline-offset-4 decoration-accent-dim/30"
-                >
-                    {link.name}
-                </a>
-            ))}
+        <div class="flex flex-row gap-4 lg:gap-6 items-center justify-end w-full md:w-auto">
+            
+            <div class="flex gap-4 lg:gap-6 overflow-x-auto pb-1 items-center mask-gradient w-full md:w-auto justify-start md:justify-end no-scrollbar">
+                {links.map((link) => (
+                    <a 
+                        href={link.href} 
+                        class="font-mono text-[10px] lg:text-sm text-accent-dim hover:text-accent-light transition-colors uppercase tracking-widest hover:underline underline-offset-4 decoration-accent-dim/30 whitespace-nowrap"
+                    >
+                        {link.name}
+                    </a>
+                ))}
+            </div>
+
+            <div class="h-4 w-px bg-accent-dim/30 hidden sm:block shrink-0"></div>
+
+            <div class="shrink-0">
+                <ThemeToggle client:load />
+            </div>
+
         </div>
 
     </nav>
 </header>
 
 <style>
-    /* ANIMACIÓN SCROLL-DRIVEN 
-       Esta es la magia que pediste. Al hacer scroll, el header cambia.
-    */
+    /* Tu estilo original intacto */
     header {
-        animation: nav-scroll 0.1s linear both; /* Duración muy corta, controlada por scroll */
-        animation-timeline: scroll(); /* Estándar moderno */
-        animation-range: 0 150px; /* El efecto ocurre en los primeros 150px de scroll */
+        animation: nav-scroll 0.1s linear both;
+        animation-timeline: scroll();
+        animation-range: 0 150px;
     }
 
     @keyframes nav-scroll {
@@ -45,19 +55,25 @@ const links = [
             background: transparent;
             backdrop-filter: blur(0px);
             border-bottom: 1px solid transparent;
-            padding-top: 1rem; /* py-4 original */
+            padding-top: 1rem;
             padding-bottom: 1rem;
         }
 
         100% {
-            /* Usamos tu variable de color de fondo con opacidad */
-            background: rgba(20, 28, 22, 0.85); 
+            background: color-mix(in srgb, var(--color-primary-bg), transparent 15%);
             backdrop-filter: blur(12px);
-            /* Borde sutil abajo */
-            border-bottom: 1px solid rgba(163, 163, 152, 0.1); 
-            /* Hacemos el navbar un poco más compacto al bajar */
+            border-bottom: 1px solid var(--color-border);
             padding-top: 0.75rem; 
             padding-bottom: 0.75rem;
         }
+    }
+    
+    /* Utilidad para ocultar la barra de scroll pero permitir deslizar */
+    .no-scrollbar::-webkit-scrollbar {
+        display: none;
+    }
+    .no-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
     }
 </style>

@@ -4,12 +4,12 @@ import { experience } from '../data/experience';
 
 <div class="relative border-l border-accent-dim/20 ml-3 my-10 space-y-12">
     {experience.map((job) => (
-        <div class="relative pl-8 md:pl-12 group">
+        <div class="relative pl-6 md:pl-12 group">
             
-            <span class={`absolute top-2 -left-[5px] w-2.5 h-2.5 rounded-full border border-primary-bg ${job.current ? 'bg-accent-light animate-pulse shadow-[0_0_10px_rgba(235,234,214,0.5)]' : 'bg-accent-dim'}`}></span>
+            <span class={`absolute top-2 -left-[5px] w-2.5 h-2.5 rounded-full border border-primary-bg transition-all duration-300 ${job.current ? 'bg-accent-light animate-pulse shadow-[0_0_10px] shadow-accent-light/50' : 'bg-accent-dim group-hover:bg-accent-light group-hover:shadow-[0_0_10px_rgba(235,234,214,0.3)]'}`}></span>
 
             <div class="flex flex-col sm:flex-row sm:items-center sm:gap-4 mb-2">
-                <span class="font-mono text-xs text-accent-dim/60 tracking-widest uppercase mb-1 sm:mb-0">
+                <span class="font-mono text-[10px] md:text-xs text-accent-dim/60 tracking-widest uppercase mb-1 sm:mb-0 transition-colors group-hover:text-accent-dim">
                     {job.date}
                 </span>
                 
@@ -20,13 +20,15 @@ import { experience } from '../data/experience';
                 )}
             </div>
 
-            <h3 class="font-display text-2xl md:text-3xl font-bold text-accent-light mb-1 group-hover:text-white transition-colors">
+            <h3 class="font-display text-xl md:text-3xl font-bold text-accent-light/80 group-hover:text-accent-light group-hover:translate-x-1 transition-all duration-300">
                 {job.role}
             </h3>
-            <h4 class="font-mono text-sm text-accent-dim mb-4 uppercase tracking-widest">
+
+            <h4 class="font-mono text-xs md:text-sm text-accent-dim mb-4 uppercase tracking-widest">
                 @ {job.company}
             </h4>
-            <p class="text-accent-light/70 font-light leading-relaxed max-w-2xl text-sm md:text-base">
+
+            <p class="text-accent-light/70 font-light leading-relaxed max-w-2xl text-sm md:text-base text-pretty group-hover:text-accent-light/90 transition-colors">
                 {job.description}
             </p>
 

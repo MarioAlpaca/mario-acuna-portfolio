@@ -3,26 +3,25 @@ import { DecoderText } from './ReactC/DecoderText.jsx';
 
 interface Props {
   title: string;
-  count?: string; // Opcional, por si no quieres poner números en alguna sección
+  count?: string;
 }
 
 const { title, count } = Astro.props;
 ---
 
-<div class="flex items-end gap-4 mb-5 w-full overflow-hidden">
+<div class="flex items-end gap-3 md:gap-4 mb-10 w-full overflow-hidden">
     
     <div class="w-2 h-2 lg:w-3 lg:h-3 bg-accent-light rounded-sm mb-2 lg:mb-3 animate-pulse shrink-0"></div>
 
-    <h2 class="font-display font-bold text-5xl md:text-6xl lg:text-7xl text-accent-light uppercase tracking-tighter leading-none shrink-0">
+    <h2 class="font-display font-bold text-3xl sm:text-4xl md:text-6xl lg:text-7xl text-accent-light uppercase tracking-tighter leading-none shrink-0">
         <DecoderText client:visible text={title} />
     </h2>
 
-    <div class="grow h-px bg-accent-dim/20 mb-3 lg:mb-4 relative">
-        
-    </div>
+    <div class="grow h-px bg-accent-dim/20 mb-2 sm:mb-3 lg:mb-4 relative">
+        </div>
 
     {count && (
-        <span class="font-mono text-xs md:text-sm text-accent-dim/50 mb-3 lg:mb-4 tracking-widest shrink-0">
+        <span class="font-mono text-[10px] md:text-sm text-accent-dim/50 mb-2 sm:mb-3 lg:mb-4 tracking-widest shrink-0">
             {count}
         </span>
     )}
