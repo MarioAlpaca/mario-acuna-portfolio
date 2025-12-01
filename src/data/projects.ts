@@ -18,5 +18,12 @@ export const projects: Project[] = [
     image: "../proy/wiki_ebdf.jpg",
     link: "https://github.com/MarioAlpaca/wiki-ebdf.git",
   },
+  {
+    number: "02",
+    category: "Backend API",
+    title: "Core Service API",
+    description: "Arquitectura de servidor de alto rendimiento. Diseño de API RESTful escalable con implementación de caché y autenticación segura para reducir la latencia y asegurar la integridad de datos.",
+    stack: ["Node.js", "Express", "PostgreSQL", "Docker"],
+  },
 
 ];
