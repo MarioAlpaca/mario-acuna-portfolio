@@ -20,7 +20,7 @@ export const projects: Project[] = [
   },
   {
     number: "02",
-    category: "Backend API",
+    category: "Backend",
     title: "Core Service API",
     description: "Arquitectura de servidor de alto rendimiento. Diseño de API RESTful escalable con implementación de caché y autenticación segura para reducir la latencia y asegurar la integridad de datos.",
     stack: ["Node.js", "Express", "PostgreSQL", "Docker"],

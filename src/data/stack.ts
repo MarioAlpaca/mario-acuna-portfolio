@@ -5,19 +5,23 @@ export interface TechCategory {
 
 export const stack: TechCategory[] = [
   { 
-    category: "CORE & LENGUAJES", 
-    items: ["JavaScript (ES6+)", "TypeScript", "Python", "SQL"] 
+    category: "CORE & DATA", 
+    items: ["Python", "SQL", "JavaScript", "Power BI", "TypeScript", "Excel Intermedio"] 
   },
   { 
-    category: "FRONTEND & UI", 
-    items: ["React", "Astro", "Tailwind CSS", "Framer Motion", "Next.js"] 
+    category: "FULL STACK WEB", 
+    items: ["React", "Astro", "Tailwind CSS", "Django", "Node.js"] 
   },
   { 
-    category: "BACKEND & CLOUD", 
-    items: ["Node.js", "PostgreSQL", "AWS (S3/EC2)", "Docker"] 
+    category: "BACKEND & DB", 
+    items: ["PostgreSQL", "MySQL", "MongoDB", "NoSQL"] 
   },
   { 
-    category: "TOOLS & ARQUITECTURA", 
-    items: ["Git / GitHub", "CI/CD Pipelines", "Figma", "REST APIs"] 
-  }
+    category: "CLOUD & DEVOPS", 
+    items: ["AWS (S3/EC2)", "Docker", "Git / GitHub", "Scrum / Agile"] 
+  },
+  { 
+    category: "ENTERPRISE & SAP",
+    items: ["SAP ABAP", "Vistas CDS", "OData Services"] 
+  },
 ];
